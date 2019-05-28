@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<!--
+  Class:    4A7B
+  Name:     Vincent van Lier
+  Purpose:  Responsive layout JavaScript periode 03 part 01
+
+  dd-mm-yyyy  Description
+  ==========  ==========================================
+  06-03-2018  Initial
+-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="css/responsive.css">
+	
+	<script src="javascript/rekenen.js"></script>
+	<script src="javascript/leeftijd.js"></script>
+	<script src="javascript/dobbelen.js"></script>
+	
+    <title>ROCMN programmeren P03</title>
+  </head> 
+
+  <body>
+  
+    <header>
+      <h1>Responsive and javascript</h1>
+    </header>
+
+    <!-- BOR_01 -->
+	<div class="row"> 
+	  
+ 	  <nav id="menu">
+        <button id="btnMenu" onclick="toggleSubMenu()">Opdrachten P03</button>
+        <div id="subMenu" >
+          <button class="submenu" id="exercise_01" onclick="showExercise(this.id)">Opdracht 01 Rekenen</button>
+		  <button class="submenu" id="exercise_02" onclick="showExercise(this.id)">Opdracht 02 Leeftijd</button>
+		  <button class="submenu" id="exercise_03" onclick="showExercise(this.id)">Opdracht 03 Dobbelen</button>
+        </div>
+	  </nav>  
+      <div id="output_exercise_01">
+	    Opdracht 01 Rekenen
+		
+		<p>
+		  <fieldset>
+		  <b>Numbers</b>
+		  <br>01:<input type="text" id="mijnNummer1" class="inputText"></input>
+		  <br>02:<input type="text" id="mijnNummer2" class="inputText"></input>
+		  </fieldset>
+		  <fieldset>
+		  <b>Calculate</b>
+		  <br><input type="radio" name="reken" value="plus">Plus		</input>
+		  <br><input type="radio" name="reken" value="minus">Minus		</input>
+		  <br><input type="radio" name="reken" value="multiply">Multiply</input>
+		  <br><input type="radio" name="reken" value="devide">Devide	</input>
+		  </fieldset>
+		  <br><button class="btnSubmit" onclick="calculate()">Submit</button> 
+		</p>
+		
+		<div id="result"></div>
+		
+      </div>
+	  <div id="output_exercise_02">
+	    Opdracht 02 Leeftijd
+		
+		<p>
+		  <fieldset>
+		  <b>Geboortedatum</b>
+		  <br>dag:  <input type="text" id="myDag"   class="inputText"></input>
+		  <br>maand:<input type="text" id="myMaand" class="inputText"></input>
+		  <br>jaar: <input type="text" id="myJaar"  class="inputText"></input>
+		  </fieldset>
+		  <br><button class="btnSubmit" onclick="leefTijd()">Submit</button>
+		</p>  
+		
+	  <div id="geboorte"></div>
+		  
+      </div> 
+	  <div id="output_exercise_03">
+	    Opdracht 03 Dobbelen
+		
+	    <p>
+		  <div id="hide"><fieldset>
+		  <button class="dobbel" id="dobbelEen"  onclick="doNotChange()"></button>
+		  <button class="dobbel" id="dobbelTwee" onclick="doNotChange()"></button>
+		  <button class="dobbel" id="dobbelDrie" onclick="doNotChange()"></button>
+		  <button class="dobbel" id="dobbelVier" onclick="doNotChange()"></button>
+		  <button class="dobbel" id="dobbelVijf" onclick="doNotChange()"></button>
+		  <button class="dobbel" id="dobbelZes"  onclick="doNotChange()"></button>
+		  </fieldset>
+		  <br><button class="standard" onclick="gooiDobbel()">Gooien</button>
+		      <button class="standard" onclick="readyDobbel()">Ready</button>
+			  <button class="standard" onclick="resetDobbel()">Reset</button></div>
+		  <br><button id="enable"  onclick="enAble()" ><b>Enable </b></button>
+			  <button id="disable" onclick="disAble()"><b>Disable</b></button>
+		</p>
+	  </div>
+	<!-- EOR_01 -->
+	<script>
+	  var isDropped = false;  //default=not dropped(CSS)
+	 
+
+
+
+	 /*document.getElementById("btnMenu").onclick = function() {toggleSubMenu()};*/
+	  
+	  function toggleSubMenu() {
+	  
+	    //if (isDropped == false) isDropped = true;
+		//else					  isDropped = false;
+		
+		isDropped = !isDropped;
+	  
+	    if (isDropped == false) document.getElementById("subMenu").style.display = "none";
+		else 					document.getElementById("subMenu").style.display = "block";
+	  }
+	  
+	  function closeAllExercise() {
+	  
+	    document.getElementById("output_exercise_01").style.display = "none";
+		document.getElementById("output_exercise_02").style.display = "none";
+		document.getElementById("output_exercise_03").style.display = "none";
+	  }
+	  
+	  
+	  function showExercise(exercise) {
+	  
+	    closeAllExercise();
+	  
+	  switch (exercise) {
+	    case "exercise_01":
+	    document.getElementById("output_exercise_01").style.display = "block";
+		break;
+		
+		case "exercise_02":
+		document.getElementById("output_exercise_02").style.display = "block";
+		break;
+		
+		case "exercise_03":
+		document.getElementById("output_exercise_03").style.display = "block";
+		break;
+	  }
+	 } 
+	   
+	</script>
+  </body>
+</html>

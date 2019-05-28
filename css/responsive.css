@@ -1,0 +1,237 @@
+/*
+  Class:    4A7B
+  Name:     P. Willems
+  Purpose:  Responsive layout JavaScript periode 03 part 01
+
+  dd-mm-yyyy  Description
+  ----------  ------------------------------------------
+  17-02-2018  Initial
+*/ 
+
+/*************************
+ * Defined fonts         *
+ *************************/
+
+@font-face {
+  font-family: rocmn_font;
+  src: url('../font/waltographui.ttf');
+}	 
+
+/*************************
+ * Global values         *
+ *************************/
+
+ 
+
+/**************************************************
+ * Include the padding and border to all elements * 
+ **************************************************/
+* {
+  box-sizing: border-box; 
+}
+
+/*************************
+ * Start a new row       *
+ *************************/
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*************************
+ * Default setting       *
+ *************************/
+body { 
+  width: 100%; 
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  font-size: 100%;
+  font-family: 'Calibri', 'Arial', 'Helvetica'; 
+  color: black;
+  background-image: url("../img/bgmob.png");
+  background-repeat: repeat-y;
+    --rocmn_darkblue: 	#2E3192;  /*H1				*/
+    --rocmn_lightblue: 	#D7EBFA;  /*Output Opdracht	*/
+    --rocmn_brightblue: #63B1E5;  /*RFU				*/
+    --rocmn_green: 		#50AA05;  /*Menu			*/
+    --rocmn_lightgreen: #DCF5A5;  /*Submenu			*/
+    --rocmn_brightgreen:#C9DD03;  /*Hover(sub)menu  */
+}
+
+/*************************
+ * Mobile first          *
+ *************************/
+ 
+
+ 
+h1 {
+  padding: 10px;
+  font-size: 1.5em;
+  font-family: 'rocmn_font', 'Calibri', 'Arial', 'Helvetica'; 
+  text-align: center;
+  color: white;
+  background-color: #2E3192;
+  margin-bottom: 30px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .5);
+  border-radius: 0px 25px 25px 0px;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  font-size: 1.00em;
+  text-align: left;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .5);
+}
+
+#menu { /* Container to position menu and submenu buttons */
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+#btnMenu {
+  background-color: #50AA05;
+  border-radius: 0px 25px 0px 0px;
+}
+
+#btnMenu:hover {
+	background-color: #C9DD03;
+}
+
+#subMenu { /* Container to position submenu buttons (shown by default) */
+	position: static;
+    display: none;
+}
+.submenu {
+  border-radius: 0px;
+  background-color: var(--rocmn_lightgreen); 
+}
+.submenu:hover {
+  background-color: #C9DD03;
+}
+
+#output_exercise_01 {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 1.0em;
+  text-align: left;
+  color: black;
+  border: 1px solid black;
+  background-color: #D7EBFA;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .5);
+  border-radius: 0px 0px 25px 0px;
+  display: none;
+}
+
+.btnSubmit {
+  background-color: var(--rocmn_brightblue);
+  text-align: center;
+  font-family: 'rocmn_font'; 
+  border-radius: 0px 0px 25px 0px;  
+}
+
+.btnSubmit:hover {
+  background-color: var(--rocmn_darkblue);
+  color: var(--rocmn_brightblue);
+}
+
+#result {
+  display: none;
+  text-align: center;
+  padding: 5px;
+}
+
+#output_exercise_02 {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 1.0em;
+  text-align: left;
+  color: black;
+  border: 1px solid black;
+  background-color: #D7EBFA;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .5);
+  border-radius: 0px 0px 25px 0px;
+  display: none;
+}
+
+.btnSubmit_02 {
+  background-color: var(--rocmn_brightblue);
+  text-align: center;
+  font-family: 'rocmn_font'; 
+  border-radius: 0px 0px 25px 0px;  
+}
+
+.btnSubmit_02:hover {
+  background-color: var(--rocmn_darkblue);
+  color: var(--rocmn_brightblue);
+}
+
+#output_exercise_03 {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 1.0em;
+  text-align: center;
+  color: black;
+  border: 1px solid black;
+  background-color: #D7EBFA;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .5);
+  border-radius: 0px 0px 25px 0px;
+  display: none;
+}
+
+#hide {
+  display: none;
+}
+
+.dobbel {
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
+  border: 2px solid black;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.standard {
+  padding: 5px;
+  margin-left: 5px;
+  width: 100px;
+  text-align: center;
+  margin-bottom: 5px;
+  box-shadow: none;
+}
+
+#enable {
+  padding: 5px;
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  width: 100px;
+  text-align: center;
+  box-shadow: none;
+}
+
+#disable {
+  padding: 5px;
+  margin-left: 5px;
+  background-color: red;
+  color: white;
+  border: 1px solid green;
+  width: 100px;
+  text-align: center;
+  box-shadow: none;
+}
+ 
